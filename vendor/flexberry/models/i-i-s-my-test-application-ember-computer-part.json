@@ -1,0 +1,161 @@
+﻿{
+  "name": "IISMyTestApplicationEmberComputerPart",
+  "modelName": "i-i-s-my-test-application-ember-computer-part",
+  "className": "ComputerPart",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "broken",
+      "type": "boolean",
+      "flexberryType": "bool",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    },
+    {
+      "name": "serialNumber",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    },
+    {
+      "name": "createTime",
+      "type": "date",
+      "flexberryType": "AuditNullableDateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    },
+    {
+      "name": "creator",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    },
+    {
+      "name": "editTime",
+      "type": "date",
+      "flexberryType": "AuditNullableDateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    },
+    {
+      "name": "editor",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "type",
+      "relatedTo": "i-i-s-my-test-application-ember-type",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "computer",
+      "relatedTo": "i-i-s-my-test-application-ember-computer",
+      "inverse": "computerPart"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "AuditView",
+      "modelName": "i-i-s-my-test-application-ember-computer-part",
+      "attrs": [
+        {
+          "name": "broken",
+          "caption": "Broken",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "serialNumber",
+          "caption": "Serial number",
+          "hidden": false,
+          "index": 1
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Name",
+          "lookupValueField": "name",
+          "relationName": "Type",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "name",
+              "caption": "Name",
+              "hidden": true,
+              "index": 3
+            }
+          ],
+          "index": 2,
+          "caption": "Type",
+          "name": "type",
+          "relatedTo": "i-i-s-my-test-application-ember-type",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    },
+    {
+      "name": "ComputerPartE",
+      "modelName": "i-i-s-my-test-application-ember-computer-part",
+      "attrs": [
+        {
+          "name": "broken",
+          "caption": "Broken",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "serialNumber",
+          "caption": "Serial number",
+          "hidden": false,
+          "index": 1
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Name",
+          "lookupValueField": "name",
+          "relationName": "Type",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "name",
+              "caption": "Name",
+              "hidden": true,
+              "index": 3
+            }
+          ],
+          "index": 2,
+          "caption": "Type",
+          "name": "type",
+          "relatedTo": "i-i-s-my-test-application-ember-type",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

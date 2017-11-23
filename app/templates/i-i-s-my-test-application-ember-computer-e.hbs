@@ -1,0 +1,91 @@
+<h3 class="ui header">{{t 'forms.i-i-s-my-test-application-ember-computer-e.caption'}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=model.errors}}
+    </div>
+  </div>
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button type="submit" class="ui button save-button" {{action 'save'}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button type="submit" class="ui button save-del-button" {{action 'delete'}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button type="submit" class="ui button close-button" {{action 'close'}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field">
+  {{
+    flexberry-field
+    placeholder=(t 'components.flexberry-field.placeholder')
+    readonly=readonly
+    required=true
+    value=model.serialNumber
+    class=(if model.errors.serialNumber 'error' '')
+    label=(t 'forms.i-i-s-my-test-application-ember-computer-e.serialNumber-caption')
+  }}
+  {{flexberry-validationmessage error=model.errors.serialNumber pointing="pointing"}}
+</div>
+
+<div class="field">
+  <label>{{t 'forms.i-i-s-my-test-application-ember-computer-e.manufactureDate-caption'}}</label>
+  {{
+    flexberry-datepicker
+    placeholder='(no value)'
+    readonly=readonly
+    value=model.manufactureDate
+    class=(if model.errors.manufactureDate 'error' '')
+  }}
+  {{flexberry-validationmessage error=model.errors.manufactureDate pointing="pointing"}}
+</div>
+
+<div class="field">
+  <label>{{t 'forms.i-i-s-my-test-application-ember-computer-e.type-caption'}}</label>
+  {{
+    flexberry-dropdown
+    items=(flexberry-enum 'i-i-s-my-test-application-ember-computer-type')
+    value=model.type
+    readonly=readonly
+  }}
+  {{flexberry-validationmessage error=model.errors.type pointing="pointing"}}
+</div>
+
+<div class="field">
+  {{
+    flexberry-field
+    placeholder=(t 'components.flexberry-field.placeholder')
+    readonly=readonly
+    required=true
+    value=model.description
+    class=(if model.errors.description 'error' '')
+    label=(t 'forms.i-i-s-my-test-application-ember-computer-e.description-caption')
+  }}
+  {{flexberry-validationmessage error=model.errors.description pointing="pointing"}}
+</div>
+
+<div class="field">
+  <label>{{t 'forms.i-i-s-my-test-application-ember-computer-e.computerPart-caption'}}</label>
+  {{
+    flexberry-groupedit
+    componentName="computerPartGroupEdit"
+    mainModelProjection=modelProjection
+    modelProjection=modelProjection.attributes.computerPart
+    content=model.computerPart
+    readonly=readonly
+    orderable=false
+    class=(if model.errors.computerPart 'error' '')
+  }}
+  {{flexberry-validationmessage error=model.errors.computerPart pointing="pointing"}}
+</div>
+
+</form>
